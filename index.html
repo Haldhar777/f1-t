@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <container class="flex flex-col">
+      <header
+        class="flex flex-row bg-[#33A0D9] font-bold text-2xl items-center h-104px"
+      >
+        <div>
+          <img class="max-w-full pt-5 pl-24" src="assets/Asset 1_1 1.png" />
+        </div>
+        <div class="ml-auto">Join a Race</div>
+        <div class="px-9">Leaderboard</div>
+        <div class="pr-9">
+          <button class="bg-white rounded-lg p-2">Login</button>
+        </div>
+      </header>
+      <content
+        class="bg-[url('/assets/BackDrop.png')] h-[500px] bg-no-repeat bg-cover relative flex flex-col items-center"
+      >
+        <info-area class="relative top-32">
+          <div id="title" class="pt-4 font-bold text-5xl">Password Reset</div>
+          <div id="succes_msg"></div>
+          <div id="toberemoved">
+            <div class="pt-4">
+              <label for="new" class="font-bold text-2xl">NEW PASSWROD</label
+              ><br />
+              <input
+                id="new"
+                class="newInput w-[350px] mt-2 border-black border-2"
+                type="password"
+                onchange="myFunction1(this.value)"
+              />
+            </div>
+
+            <div class="pt-4">
+              <label for="re-in" class="font-bold text-2xl"
+                >RE-ENTER NEW PASSWORD</label
+              ><br />
+              <input
+                id="re-in"
+                class="w-[350px] mt-2 border-black border-2"
+                type="password"
+                onchange="myFunction2(this.value)"
+              />
+            </div>
+          </div>
+          <div id="msg">
+            <i class="text-red-600"></i>
+          </div>
+          <div class="mt-4 bg-black text-center">
+            <button
+              id="btntext"
+              onclick="checkPass()"
+              class="font-bold text-2xl text-white"
+            >
+              RESET PASSWORD
+            </button>
+          </div>
+        </info-area>
+      </content>
+      <footer
+        class="relative h-[138px] bg-[#2180B3] flex items-center justify-center"
+      >
+        <div class="text-2xl text-white p-4 font-bold">About Us</div>
+        <div class="text-2xl text-white p-4 font-bold">Privacy Policy</div>
+        <div class="text-2xl text-white p-4 font-bold">Tutorials</div>
+        <div class="text-2xl text-white p-4 font-bold">Terms of Service</div>
+      </footer>
+    </container>
+    <script>
+      const msg = document.getElementById("msg");
+
+      const newTitle = document.getElementById("title");
+
+      const btntext = document.getElementById("btntext");
+
+      const toberemoved = document.getElementById("toberemoved");
+
+      const succes_msg = document.getElementById("succes_msg");
+
+      let value1 = "";
+      let value2 = "";
+
+      const myFunction1 = (val) => {
+        value1 = val;
+      };
+      const myFunction2 = (val) => {
+        value2 = val;
+      };
+
+      const checkPass = () => {
+        if (value1 != value2) {
+          msg.innerHTML = "Passwords do not match";
+        } else {
+          newTitle.textContent = "Password Changed";
+          succes_msg.innerHTML =
+            "Your password has been updated! Now get back " +
+            "</br>" +
+            "in the driver seat, racers are waiting for you!";
+
+          btntext.textContent = "JOIN A RACE";
+          toberemoved.innerHTML = "";
+        }
+      };
+    </script>
+  </body>
+</html>
